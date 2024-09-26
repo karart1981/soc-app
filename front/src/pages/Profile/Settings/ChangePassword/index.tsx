@@ -12,13 +12,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import {  handleChangePassword } from '../../../../lib/api';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ChangePassword } from '../../../../lib/types';
 
-
-interface ChangePassword{
-    old:string
-    newpwd:string
-}
-export const ChangePassword = () => {
+export const ChangePasswordPage = () => {
     const {register, handleSubmit, formState:{errors}} = useForm<ChangePassword>()
     const [error, setError] = useState("")
 

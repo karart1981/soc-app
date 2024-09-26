@@ -7,8 +7,8 @@ import { Login } from './pages/Login'
 import { Profile } from './pages/Profile'
 import { Dashboard } from './pages/Profile/Dashboard'
 import { Settings } from './pages/Profile/Settings'
-import { ChangeLogin } from './pages/Profile/Settings/ChangeLogin'
-import { ChangePassword } from './pages/Profile/Settings/ChangePassword'
+import { ChangeLoginPage } from './pages/Profile/Settings/ChangeLogin'
+import { ChangePasswordPage } from './pages/Profile/Settings/ChangePassword'
 
 
 
@@ -35,11 +35,11 @@ const routes = createBrowserRouter([
         children:[
           {
             path:"login",
-            element:<ChangeLogin/>
+            element:<ChangeLoginPage/>
           },
           {
             path:"password",
-            element:<ChangePassword/>
+            element:<ChangePasswordPage/>
           }
         ]
 

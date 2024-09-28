@@ -12,9 +12,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { handleChangeLogin } from '../../../../lib/api';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChangeLogin } from '../../../../lib/types';
 
-export const ChangeLoginPage = () => {
+interface ChangeLogin{
+    password:string
+    login:string
+}
+export const ChangeLogin = () => {
     const {register, handleSubmit, formState:{errors}} = useForm<ChangeLogin>()
     const [error, setError] = useState("")
 
@@ -23,9 +26,9 @@ export const ChangeLoginPage = () => {
 
     const handleLoginChange:SubmitHandler<ChangeLogin>  = (data) => {
 
-        const {password, newLogin} = data
+        const {password, login} = data
         
-        const changes:ChangeLogin = { password, newLogin}
+        const changes:ChangeLogin = { password, login}
         handleChangeLogin(changes)
         .then(response => {
             if(response.status == "error" && response.message){
@@ -65,12 +68,12 @@ export const ChangeLoginPage = () => {
                                     {...register("password", {required:true})}
                                 />
                                 {
-                                   errors.newLogin && <p>new login required</p>
+                                   errors.login && <p>new login required</p>
                                 }
                                 <MDBInput
                                     wrapperClass='mb-4'
                                     type='text' placeholder='new login'
-                                    {...register("newLogin",{required:true})}
+                                    {...register("login",{required:true})}
                                 />
                                 <button type='submit' className='btn btn-outline-info' >Submit</button>
                             </form>
